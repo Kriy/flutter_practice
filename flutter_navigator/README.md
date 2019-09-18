@@ -115,4 +115,6 @@ void _finishAccountCreation() {
 复制代码popUntil
 当我们构建一个多表单创建的场景，一个用户需要按次序在不同 Page 填写不同的表单, 当用户填写至的第三页时，用户决定取消填写表单, 我们期望的逻辑是, 回到填写表单之前的某一页。
 
+https://juejin.im/post/5c3ed794f265da616b10f14e
+
 Navigator.popUntil(context, ModalRoute.withName('/Dashboard'));
