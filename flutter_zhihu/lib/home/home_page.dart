@@ -15,7 +15,6 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-
   Widget barSearch() {
     return new Container(
         child: new Row(
@@ -23,6 +22,7 @@ class _HomePageState extends State<HomePage> {
             new Expanded(
                 child: new FlatButton.icon(
                   onPressed: (){
+                    Navigator.removeRoute(context, route)
                     Navigator.of(context).push(new MaterialPageRoute(
                         builder: (context) {
                           return new SearchPage();
