@@ -1,0 +1,99 @@
+import 'dart:async';
+
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_app/app/request.dart';
+import 'package:flutter_app/app/sq_color.dart';
+import 'package:flutter_app/app/user_manager.dart';
+import 'package:flutter_app/public.dart';
+
+class LoginScene extends StatefulWidget {
+  @override
+  State<StatefulWidget> createState() {
+    // TODO: implement createState
+    return null;
+  }
+}
+
+class LoginSceneState extends State {
+  TextEditingController phoneEditer = TextEditingController();
+  TextEditingController codeEditer = TextEditingController();
+  int coldDownSeconds = 0;
+  Timer timer;
+
+  fetchSmsCode() async {
+    if (phoneEditer.text.length == 0) {
+      return;
+    }
+    try {
+      await Request.post(
+        action: 'sms',
+        params: {'phone': phoneEditer.text, 'type': 'login'},
+      );
+      setState(() {
+        coldDownSeconds = 60;
+      });
+      coldDown();
+    } catch (e) {
+      Toast.show(e.toString());
+    }
+  }
+
+  login() async {
+    var phone = phoneEditer.text;
+    var code = codeEditer.text;
+
+    try {
+      var response = await Request.post(action: 'login', params: {
+        'phone': phone,
+        'code': code,
+      });
+      UserManager.instance.login(response);
+      Navigator.pop(context);
+    } catch (e) {
+      Toast.show(e.toString());
+    }
+  }
+
+  @override
+  void dispose() {
+    if (timer != null) {
+      timer.cancel();
+    }
+    super.dispose();
+  }
+
+  coldDown() {
+    timer = Timer(Duration(seconds: 1), () {
+      setState(() {
+        --coldDownSeconds;
+      });
+      coldDown();
+    });
+  }
+
+  Widget buildPhone(){
+    return Container(
+      padding: EdgeInsets.symmetric(horizontal: 8),
+      decoration: BoxDecoration(
+        color: SQColor.paper,
+        borderRadius: BorderRadius.circular(5),
+      ),
+      child: TextField(
+        controller: phoneEditer,
+        keyboardType: TextInputType.phone,
+        style: TextStyle(fontSize: 14, color: SQColor.darkGray),
+        decoration: InputDecoration(
+          hintText: ''
+        ),
+      ),
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    // TODO: implement build
+    return null;
+  }
+}
