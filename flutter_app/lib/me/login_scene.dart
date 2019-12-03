@@ -6,6 +6,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_app/app/request.dart';
 import 'package:flutter_app/app/sq_color.dart';
 import 'package:flutter_app/app/user_manager.dart';
+import 'package:flutter_app/me/code_button.dart';
 import 'package:flutter_app/public.dart';
 
 class LoginScene extends StatefulWidget {
@@ -73,7 +74,7 @@ class LoginSceneState extends State {
     });
   }
 
-  Widget buildPhone(){
+  Widget buildPhone() {
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 8),
       decoration: BoxDecoration(
@@ -85,8 +86,45 @@ class LoginSceneState extends State {
         keyboardType: TextInputType.phone,
         style: TextStyle(fontSize: 14, color: SQColor.darkGray),
         decoration: InputDecoration(
-          hintText: ''
+          hintText: '请输入手机号',
+          hintStyle: TextStyle(color: SQColor.gray),
+          border: InputBorder.none,
         ),
+      ),
+    );
+  }
+
+  Widget buildCode() {
+    return Container(
+      padding: EdgeInsets.only(left: 8),
+      decoration: BoxDecoration(
+        color: SQColor.paper,
+        borderRadius: BorderRadius.circular(5),
+      ),
+      child: Row(
+        children: <Widget>[
+          Flexible(
+            child: TextField(
+              controller: codeEditer,
+              keyboardType: TextInputType.phone,
+              style: TextStyle(fontSize: 14, color: SQColor.darkGray),
+              decoration: InputDecoration(
+                hintText: '请输入短信验证码',
+                hintStyle: TextStyle(color: SQColor.gray),
+                border: InputBorder.none,
+              ),
+            ),
+          ),
+          Container(
+            color: Color(0xffdae3f2),
+            width: 1,
+            height: 40,
+          ),
+          CodeButton(
+            onPressed: fetchSmsCode,
+            coldDownSeconds: coldDownSeconds,
+          ),
+        ],
       ),
     );
   }
