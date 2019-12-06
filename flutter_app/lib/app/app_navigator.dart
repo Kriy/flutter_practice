@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_app/me/login_scene.dart';
 import 'package:flutter_app/model/novel.dart';
 import 'package:flutter_app/novel_detail/novel_detail_scene.dart';
 

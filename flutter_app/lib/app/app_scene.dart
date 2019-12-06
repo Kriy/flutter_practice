@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app/app/root_scene.dart';
 import 'package:flutter_app/app/sq_color.dart';
 
 final RouteObserver<PageRoute> routeObserver = RouteObserver<PageRoute>();

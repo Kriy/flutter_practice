@@ -1,4 +1,7 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter_app/global.dart';
+import 'package:flutter_app/public.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class RootScene extends StatefulWidget {
   @override
@@ -23,11 +26,46 @@ class RootSceneState extends State<RootScene> {
   void initState() {
     super.initState();
 
+    setupApp();
+    eventBus.on(EventUserLogin, (arg) {
+      setState(() {});
+    });
+    eventBus.on(EventUserLogout, (arg) {
+      setState(() {});
+    });
+    eventBus.on(EventToggleTabBarIndex, (arg) {
+      setState(() {
+        _tabIndex = arg;
+      });
+    });
+  }
+
+  @override
+  void dispose() {
+    eventBus.off(EventUserLogin);
+    eventBus.off(EventUserLogout);
+    eventBus.off(EventToggleTabBarIndex);
+    super.dispose();
+  }
+
+  setupApp() async {
+    preferences = await SharedPreferences.getInstance();
+    setState(() {
+      isFinishSetup = true;
+    });
   }
 
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
     return null;
+  }
+
+  Image getTabIcon(int index) {
+    if (index == _tabIndex) {
+      return _tabSelectedImages[index];
+    } else {
+      return _tabImages[index];
+    }
   }
 }

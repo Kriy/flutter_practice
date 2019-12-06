@@ -129,9 +129,55 @@ class LoginSceneState extends State {
     );
   }
 
+  Widget buildBody() {
+    return Column(
+      children: <Widget>[
+        SizedBox(
+          height: 20,
+        ),
+        Container(
+          margin: EdgeInsets.symmetric(horizontal: 15),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: <Widget>[
+              buildPhone(),
+              SizedBox(
+                height: 10,
+              ),
+              buildCode(),
+              SizedBox(
+                height: 10,
+              ),
+              Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(5),
+                  color: SQColor.primary,
+                ),
+                height: 40,
+                child: FlatButton(
+                  onPressed: login,
+                  child: Text(
+                    "登录",
+                    style: TextStyle(fontSize: 16, color: Color(0xFFFFFFFF)),
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+      ],
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
-    return null;
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("登录"),
+        elevation: 0,
+      ),
+      backgroundColor: Colors.white,
+      body: buildBody(),
+    );
   }
 }
