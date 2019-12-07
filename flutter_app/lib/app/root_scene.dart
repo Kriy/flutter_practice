@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_app/global.dart';
 import 'package:flutter_app/public.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -57,8 +58,17 @@ class RootSceneState extends State<RootScene> {
 
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
-    return null;
+    if(!isFinishSetup){
+      return Container();
+    }
+
+    return Scaffold(
+      body: IndexedStack(
+        children: <Widget>[
+          Bookshelf
+        ],
+      ),
+    );
   }
 
   Image getTabIcon(int index) {
