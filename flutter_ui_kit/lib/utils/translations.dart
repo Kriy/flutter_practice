@@ -29,6 +29,7 @@ class Translations {
   }
 
   get currentLanguage => locale.languageCode;
+  
 }
 
 class TranslationsDelegate extends LocalizationsDelegate<Translations> {
