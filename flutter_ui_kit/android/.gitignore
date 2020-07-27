@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 gradle-wrapper.jar
 /.gradle
 /captures/
@@ -5,3 +6,12 @@ gradle-wrapper.jar
 /gradlew.bat
 /local.properties
 GeneratedPluginRegistrant.java
+=======
+gradle-wrapper.jar
+/.gradle
+/captures/
+/gradlew
+/gradlew.bat
+/local.properties
+GeneratedPluginRegistrant.java
+>>>>>>> 5bbc5ef35722735de81010502123377db5f779fb
