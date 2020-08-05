@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutterapp/utils/uidata.dart';
 
-class MyAboutTile extends StatelessWidget{
-
+class MyAboutTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AboutListTile(
@@ -25,5 +24,16 @@ class MyAboutTile extends StatelessWidget{
       applicationLegalese: "Apache License 2.0",
     );
   }
+}
 
+class Test extends StatefulWidget {
+  @override
+  TestState createState() => TestState();
+}
+
+class TestState extends State<Test> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold();
+  }
 }
