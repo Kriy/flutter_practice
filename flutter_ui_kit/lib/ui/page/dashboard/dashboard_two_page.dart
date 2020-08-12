@@ -73,6 +73,6 @@ class DashboardTwoPage extends StatelessWidget {
       appTitle: "Pay",
       showFAB: false,
       bodyData: bodyData(),
-    )
+    );
   }
 }
