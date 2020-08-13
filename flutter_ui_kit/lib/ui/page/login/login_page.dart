@@ -1,0 +1,3 @@
+
+
+enum LoginValidationType { phone, otp }

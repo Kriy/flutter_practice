@@ -16,7 +16,7 @@ class Translations {
     return Localizations.of<Translations>(context, Translations);
   }
 
-  static text(String key) {
+  String text(String key) {
     return _localizedValues[key] ?? '** $key not found';
   }
 
