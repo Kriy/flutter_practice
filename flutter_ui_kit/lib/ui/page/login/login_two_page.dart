@@ -3,10 +3,12 @@ import 'package:flutterapp/utils/uidata.dart';
 
 class LoginTwoPage extends StatelessWidget {
   @override
-  Widget build(BuildContext context) {
-    // TODO: implement build
-    return null;
-  }
+  Widget build(BuildContext context) => Scaffold(
+        backgroundColor: Colors.white,
+        body: Center(
+          child: loginBody(),
+        ),
+      );
 
   loginBody() => SingleChildScrollView(
         child: Column(
