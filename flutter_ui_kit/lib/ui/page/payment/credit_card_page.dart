@@ -113,6 +113,75 @@ class CreditCardPage extends StatelessWidget {
         ),
       );
 
+  Widget fillEntries() => Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: <Widget>[
+            TextField(
+              controller: ccMask,
+              keyboardType: TextInputType.number,
+              maxLength: 19,
+              style: TextStyle(
+                  fontFamily: UIData.ralewayFont, color: Colors.black),
+              onChanged: (out) => cardBloc.ccInputSink.add(ccMask.text),
+              decoration: InputDecoration(
+                  labelText: "Credit Card Number",
+                  labelStyle: TextStyle(
+                    fontWeight: FontWeight.bold,
+                  ),
+                  border: OutlineInputBorder()),
+            ),
+            TextField(
+              controller: expMask,
+              keyboardType: TextInputType.number,
+              maxLength: 5,
+              style: TextStyle(
+                  fontFamily: UIData.ralewayFont, color: Colors.black),
+              onChanged: (out) => cardBloc.expInputSink.add(expMask.text),
+              decoration: InputDecoration(
+                labelStyle: TextStyle(
+                  fontWeight: FontWeight.bold,
+                ),
+                labelText: "MM/YY",
+                border: OutlineInputBorder(),
+              ),
+            ),
+            TextField(
+              keyboardType: TextInputType.number,
+              maxLength: 3,
+              style: TextStyle(
+                fontFamily: UIData.ralewayFont,
+                color: Colors.black,
+              ),
+              onChanged: (out) => cardBloc.cvvInputSink.add(out),
+              decoration: InputDecoration(
+                  labelStyle: TextStyle(
+                    fontWeight: FontWeight.bold,
+                  ),
+                  labelText: "CVV",
+                  border: OutlineInputBorder()),
+            ),
+            TextField(
+              keyboardType: TextInputType.text,
+              maxLength: 20,
+              style: TextStyle(
+                fontFamily: UIData.ralewayFont,
+                color: Colors.black,
+              ),
+              onChanged: (out) => cardBloc.nameInputSink.add(out),
+              decoration: InputDecoration(
+                labelStyle: TextStyle(
+                  fontWeight: FontWeight.bold,
+                ),
+                labelText: "Name on card",
+                border: OutlineInputBorder(),
+              ),
+            ),
+          ],
+        ),
+      );
+
   Widget floatingBar() => Ink(
         decoration: ShapeDecoration(
             shape: StadiumBorder(),
@@ -131,5 +200,18 @@ class CreditCardPage extends StatelessWidget {
       );
 
   @override
-  Widget build(BuildContext context) {}
+  Widget build(BuildContext context) {
+    _context = context;
+    cardBloc = CreditCardBloc();
+    return Scaffold(
+      resizeToAvoidBottomPadding: true,
+      appBar: AppBar(
+        centerTitle: false,
+        title: Text("Credit Card"),
+      ),
+      body: bodyData(),
+      floatingActionButton: floatingBar(),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+    );
+  }
 }
