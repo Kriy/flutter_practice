@@ -3,6 +3,7 @@ import 'dart:ffi';
 import 'package:flutter/material.dart';
 import 'package:flutterdeer/res/colors.dart';
 import 'package:flutterdeer/res/dimens.dart';
+import 'package:flutterdeer/res/gaps.dart';
 import 'package:flutterdeer/res/styles.dart';
 import 'package:flutterdeer/routers/fluro_navigator.dart';
 
@@ -53,6 +54,40 @@ class BaseDialog extends StatelessWidget {
           onPressed: onPressed,
         )
       ],
+    );
+
+    final Widget body = Material(
+      borderRadius: BorderRadius.circular(8.0),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Gaps.vGap24,
+          dialogTitle,
+          Flexible(child: child),
+          Gaps.vGap8,
+          Gaps.line,
+          bottomButton,
+        ],
+      ),
+    );
+
+    return AnimatedPadding(
+      padding: MediaQuery.of(context).viewInsets +
+          const EdgeInsets.symmetric(horizontal: 40.0, vertical: 24.0),
+      duration: const Duration(milliseconds: 120),
+      curve: Curves.easeInCubic,
+      child: MediaQuery.removeViewInsets(
+          removeLeft: true,
+          removeTop: true,
+          removeRight: true,
+          removeBottom: true,
+          context: context,
+          child: Center(
+            child: SizedBox(
+              width: 270.0,
+              child: body,
+            ),
+          )),
     );
   }
 }
