@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:flutterdeer/routers/not_found_page.dart';
+import 'package:flutterdeer/res/dimens.dart';
 
 /// 间隔
 /// 官方做法：https://github.com/flutter/flutter/pull/54394
