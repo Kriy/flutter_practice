@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_study/commonwidgets/container_widget.dart';
+import 'package:flutter_study/commonwidgets/scaffold_widget.dart';
 import 'package:flutter_study/commonwidgets/text_widget.dart';
 import 'package:flutter_study/commonwidgets/widget_list.dart';
+
+import 'commonwidgets/appbar_widget.dart';
+import 'commonwidgets/column_widget.dart';
 
 void main() {
   runApp(MyApp());
@@ -12,9 +17,12 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Study',
       routes: {
-        "": (_) => MyApp(),
         "widget_list": (_) => WidgetList(),
+        "scaffold_widget": (_) => ScaffoldWidget(),
+        "appbar_widget": (_) => AppbarWidget(),
+        "container_widget": (_) => ContainerWidget(),
         "text_widget": (_) => TextWidget(),
+        "column_widget": (_) => ColumnWidget(),
       },
       initialRoute: "/",
       theme: ThemeData(

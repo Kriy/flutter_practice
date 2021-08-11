@@ -18,9 +18,33 @@ class WidgetList extends StatelessWidget {
               height: 30,
             ),
             MinWidthWidget(
+              title: "Scaffold",
+              onPressed: () {
+                Navigator.pushNamed(context, "scaffold_widget");
+              },
+            ),
+            MinWidthWidget(
+              title: "Appbar",
+              onPressed: () {
+                Navigator.pushNamed(context, "appbar_widget");
+              },
+            ),
+            MinWidthWidget(
+              title: "Container",
+              onPressed: () {
+                Navigator.pushNamed(context, "container_widget");
+              },
+            ),
+            MinWidthWidget(
               title: "Text",
               onPressed: () {
                 Navigator.pushNamed(context, "text_widget");
+              },
+            ),
+            MinWidthWidget(
+              title: "Column",
+              onPressed: () {
+                Navigator.pushNamed(context, "column_widget");
               },
             ),
           ],
