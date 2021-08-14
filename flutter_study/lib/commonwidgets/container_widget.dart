@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 class ContainerWidget extends StatelessWidget {
@@ -8,6 +7,11 @@ class ContainerWidget extends StatelessWidget {
       appBar: AppBar(
         title: Text("Container"),
         centerTitle: true,
+      ),
+      body: SingleChildScrollView(
+        child: Column(
+          children: [],
+        ),
       ),
     );
   }
