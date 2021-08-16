@@ -108,6 +108,24 @@ class ContainerWidget extends StatelessWidget {
               ),
               child: Text("前装饰器"),
             ),
+            Text("设置前装饰器，可以看到前装饰器是在背景装饰器之上的"),
+            Container(
+              height: 100,
+              width: 100,
+              decoration: BoxDecoration(
+                color: Colors.deepOrange,
+              ),
+              foregroundDecoration: BoxDecoration(
+                color: Colors.yellow,
+                borderRadius: BorderRadius.all(Radius.circular(6)),
+                border: Border.all(
+                  color: Colors.grey,
+                  width: 5,
+                  style: BorderStyle.solid,
+                ),
+              ),
+              child: Text("前装饰器"),
+            ),
           ],
         ),
       ),
