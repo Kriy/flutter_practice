@@ -108,23 +108,76 @@ class ContainerWidget extends StatelessWidget {
               ),
               child: Text("前装饰器"),
             ),
-            Text("设置前装饰器，可以看到前装饰器是在背景装饰器之上的"),
+            Text("设置渐变背景装饰器"),
             Container(
               height: 100,
               width: 100,
               decoration: BoxDecoration(
                 color: Colors.deepOrange,
-              ),
-              foregroundDecoration: BoxDecoration(
-                color: Colors.yellow,
-                borderRadius: BorderRadius.all(Radius.circular(6)),
-                border: Border.all(
-                  color: Colors.grey,
-                  width: 5,
-                  style: BorderStyle.solid,
+                gradient: LinearGradient(
+                  colors: [
+                    Colors.lightBlueAccent,
+                    Colors.cyan,
+                    Colors.redAccent
+                  ],
                 ),
               ),
-              child: Text("前装饰器"),
+              alignment: Alignment.center,
+              child: Text("渐变背景装饰器"),
+            ),
+            Text("设置形状转变"),
+            Container(
+              height: 100,
+              width: 100,
+              decoration: BoxDecoration(
+                color: Colors.deepOrange,
+                gradient: LinearGradient(
+                  colors: [
+                    Colors.lightBlueAccent,
+                    Colors.cyan,
+                    Colors.redAccent
+                  ],
+                ),
+              ),
+              alignment: Alignment.center,
+              transform: Matrix4.skewY(0.3),
+              child: Text("渐变背景装饰器"),
+            ),
+            Text("设置形状转变"),
+            Container(
+              height: 100,
+              width: 100,
+              decoration: BoxDecoration(
+                color: Colors.deepOrange,
+                gradient: LinearGradient(
+                  colors: [
+                    Colors.lightBlueAccent,
+                    Colors.cyan,
+                    Colors.redAccent
+                  ],
+                ),
+              ),
+              alignment: Alignment.center,
+              transform: Matrix4.rotationZ(0.3),
+              child: Text("渐变背景装饰器"),
+            ),
+            Text("设置形状转变"),
+            Container(
+              height: 100,
+              width: 100,
+              decoration: BoxDecoration(
+                color: Colors.deepOrange,
+                gradient: LinearGradient(
+                  colors: [
+                    Colors.lightBlueAccent,
+                    Colors.cyan,
+                    Colors.redAccent
+                  ],
+                ),
+              ),
+              alignment: Alignment.center,
+              transform: Matrix4.rotationX(0.8),
+              child: Text("渐变背景装饰器"),
             ),
           ],
         ),
