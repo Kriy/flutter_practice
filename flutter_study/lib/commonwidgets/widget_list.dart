@@ -47,6 +47,12 @@ class WidgetList extends StatelessWidget {
                 Navigator.pushNamed(context, "column_widget");
               },
             ),
+            MinWidthWidget(
+              title: "Row",
+              onPressed: () {
+                Navigator.pushNamed(context, "row_widget");
+              },
+            ),
           ],
         ),
       ),

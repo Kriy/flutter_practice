@@ -1,120 +1,77 @@
 import 'package:flutter/material.dart';
 
-class ColumnWidget extends StatelessWidget {
+class RowWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        title: Text("Row"),
         centerTitle: true,
-        title: Text("Column"),
       ),
       body: SingleChildScrollView(
         child: Column(
           children: [
             Text("""
-        Column({
+        Row({
           Key? key,
-          MainAxisAlignment mainAxisAlignment = MainAxisAlignment.start,  //主轴方向对齐方式
+          MainAxisAlignment mainAxisAlignment = MainAxisAlignment.start, //主轴方向对齐方式（横向）
           MainAxisSize mainAxisSize = MainAxisSize.max, //主轴方向占用空间
           CrossAxisAlignment crossAxisAlignment = CrossAxisAlignment.center,  //纵轴方向对齐方式
           TextDirection? textDirection, //水平方向子组件排序方向
           VerticalDirection verticalDirection = VerticalDirection.down, //垂直方向子组件排序方向
-          TextBaseline? textBaseline, //基线
-          List<Widget> children = const <Widget>[], //子件建集
+          TextBaseline? textBaseline, // NO DEFAULT: we don't know what the text's baseline should be
+          List<Widget> children = const <Widget>[],
         })
-        对于Column主轴是垂直方向，纵轴是水平方向
-        主轴方向默认是占据上级Widget提供的最大高度
+        对于Row主轴是水平方向，纵轴是垂直方向
             """),
             Text("主轴对齐方式-头对齐"),
             Container(
-              height: 100,
+              height: 50,
               width: double.infinity,
               color: Colors.redAccent,
-              child: Column(
+              child: Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  Text("上"),
+                  Text("左"),
                   Text("中"),
-                  Text("下"),
+                  Text("右"),
                 ],
               ),
             ),
             Text("主轴对齐方式-居中对齐"),
             Container(
-              height: 100,
+              height: 50,
               width: double.infinity,
               color: Colors.redAccent,
-              child: Column(
+              child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text("上"),
+                  Text("左"),
                   Text("中"),
-                  Text("下"),
+                  Text("右"),
                 ],
               ),
             ),
             Text("主轴对齐方式-尾对齐"),
             Container(
-              height: 100,
+              height: 50,
               width: double.infinity,
               color: Colors.redAccent,
-              child: Column(
+              child: Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  Text("上"),
+                  Text("左"),
                   Text("中"),
-                  Text("下"),
-                ],
-              ),
-            ),
-            Text("主轴对齐方式-空白区域居中均分"),
-            Container(
-              height: 100,
-              width: double.infinity,
-              color: Colors.redAccent,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text("上"),
-                  Text("中"),
-                  Text("下"),
-                ],
-              ),
-            ),
-            Text("主轴对齐方式-空白区域每个widget均分"),
-            Container(
-              height: 100,
-              width: double.infinity,
-              color: Colors.redAccent,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  Text("上"),
-                  Text("中"),
-                  Text("下"),
-                ],
-              ),
-            ),
-            Text("主轴对齐方式-空白区域均分"),
-            Container(
-              height: 100,
-              width: double.infinity,
-              color: Colors.redAccent,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  Text("上"),
-                  Text("中"),
-                  Text("下"),
+                  Text("右"),
                 ],
               ),
             ),
             Text("纵轴对齐方式-头对齐"),
             Container(
-              height: 100,
+              height: 50,
               width: double.infinity,
               color: Colors.redAccent,
-              child: Column(
+              child: Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text("左"),
@@ -125,10 +82,10 @@ class ColumnWidget extends StatelessWidget {
             ),
             Text("纵轴对齐方式-居中对齐"),
             Container(
-              height: 100,
+              height: 50,
               width: double.infinity,
               color: Colors.redAccent,
-              child: Column(
+              child: Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Text("左"),
@@ -139,10 +96,10 @@ class ColumnWidget extends StatelessWidget {
             ),
             Text("纵轴对齐方式-尾对齐"),
             Container(
-              height: 100,
+              height: 50,
               width: double.infinity,
               color: Colors.redAccent,
-              child: Column(
+              child: Row(
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
                   Text("左"),
@@ -151,13 +108,13 @@ class ColumnWidget extends StatelessWidget {
                 ],
               ),
             ),
-            Text("纵轴对齐方式-从右往左排序，尾对齐"),
+            Text("主轴对齐方式-尾对齐-从右往左排序"),
             Container(
-              height: 100,
+              height: 50,
               width: double.infinity,
               color: Colors.redAccent,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.end,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.end,
                 textDirection: TextDirection.rtl,
                 children: [
                   Text("左"),
@@ -166,17 +123,22 @@ class ColumnWidget extends StatelessWidget {
                 ],
               ),
             ),
-            Text("纵轴对齐方式-从右往左排序，尾对齐"),
+            Text("纵轴对齐方式-尾对齐-从上往下排序"),
             Container(
-              height: 100,
+              height: 50,
               width: double.infinity,
               color: Colors.redAccent,
-              child: Column(
-                textBaseline: TextBaseline.ideographic,
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.end,
+                verticalDirection: VerticalDirection.up,
                 children: [
                   Text("左"),
                   Text("中"),
                   Text("右"),
+                  Container(
+                    width: 1,
+                    height: double.infinity,
+                  ),
                 ],
               ),
             ),
