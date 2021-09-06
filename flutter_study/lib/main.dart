@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_study/commonwidgets/container_widget.dart';
+import 'package:flutter_study/commonwidgets/image_widget.dart';
 import 'package:flutter_study/commonwidgets/row_widget.dart';
 import 'package:flutter_study/commonwidgets/scaffold_widget.dart';
 import 'package:flutter_study/commonwidgets/text_widget.dart';
@@ -25,6 +26,7 @@ class MyApp extends StatelessWidget {
         "text_widget": (_) => TextWidget(),
         "column_widget": (_) => ColumnWidget(),
         "row_widget": (_) => RowWidget(),
+        "image_widget": (_) => ImageWidget(),
       },
       initialRoute: "/",
       theme: ThemeData(

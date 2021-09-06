@@ -53,6 +53,12 @@ class WidgetList extends StatelessWidget {
                 Navigator.pushNamed(context, "row_widget");
               },
             ),
+            MinWidthWidget(
+              title: "Image",
+              onPressed: () {
+                Navigator.pushNamed(context, "image_widget");
+              },
+            ),
           ],
         ),
       ),
